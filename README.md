@@ -1,1 +1,2 @@
-# MetOptLab1
+# met_opt_lab_1
+ Лабораторная работа №1 по методам оптимизации. Задания в файле lab_1_optimization.pdf.
