@@ -1,0 +1,13 @@
+import optimization as opt
+
+def to_scalar(fun, init_point, direction):
+    return lambda x: fun(*(init_point + x * direction))
+
+def min_in_direction(fun, init_point, direction, method="dihotomy"):
+    g = to_scalar(fun, init_point, direction)
+    bounds = opt.find_unimodal_interval(g, 0)
+    if method == "dihotomy":
+        g_min = opt.dihotomy(g, bounds, maxiter=2)
+    else:
+        raise ValueError("Unknown method")
+    return init_point + direction * g_min
