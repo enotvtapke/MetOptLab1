@@ -2,6 +2,7 @@ from inspect import signature
 
 import numpy as np
 
+
 def grad(fun, x, h=1e-5):
     if not callable(fun):
         raise ValueError("fun should be callable")
