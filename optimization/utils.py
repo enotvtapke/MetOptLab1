@@ -8,8 +8,9 @@ def grad(fun, x, h=1e-5):
         raise ValueError("fun should be callable")
     dim = len(signature(fun).parameters)
     g = np.zeros(dim)
+    step = np.zeros(dim)
     for i in range(dim):
-        step = np.zeros(dim)
         step[i] = h
         g[i] = (fun(*(x + step)) - fun(*(x - step))) / (2 * h)
+        step[i] = 0
     return g
