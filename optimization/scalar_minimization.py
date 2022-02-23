@@ -23,10 +23,10 @@ def find_unimodal_interval(fun, a, initial_lr=0.05, max_lr=5):
     grad = utils.grad
     if grad(fun, a) > 0:
         raise ValueError("Function should decrease in point a.")
-    lr = initial_lr
+    lr = np.array([initial_lr])
     b = a
     while grad(fun, b) <= 0:
-        b += lr
+        b = b + lr
         lr = min(lr * 2, max_lr)
     return np.array([a, b])
 
