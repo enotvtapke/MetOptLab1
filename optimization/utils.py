@@ -24,6 +24,7 @@ def gen_quadratic_function(n, limits):
             for j in range(n):
                 res += a[i, j] * x[i] * x[j]
         return res
+
     return f
 
 
