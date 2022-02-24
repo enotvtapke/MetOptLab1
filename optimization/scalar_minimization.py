@@ -1,5 +1,6 @@
 import numpy as np
 import optimization.utils as utils
+from optimization.sсhedulers import exp_increase
 
 
 def dichotomy(fun, bounds, delta=0.05, max_iter=500, log=False):
@@ -27,7 +28,7 @@ def find_unimodal_interval(fun, a, initial_lr=0.05, max_lr=5):
     b = a
     while grad(fun, b) <= 0:
         b = b + lr
-        lr = min(lr * 2, max_lr)
+        lr = min(exp_increase(lr, 1), max_lr)
     return np.array([a, b])
 
 
