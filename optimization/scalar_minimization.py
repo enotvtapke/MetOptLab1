@@ -16,6 +16,7 @@ def dichotomy(fun, bounds, stopping_criterion, delta=0.05, log=False):
             a = x1
         points.append((a + b) / 2)
         if stopping_criterion(step, points[step]):
+            print(step)
             return np.array(points) if log else (a + b) / 2
         step += 1
 
